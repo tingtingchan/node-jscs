@@ -72,7 +72,7 @@
     "jscs-jsdoc": "^2.0.0",
     "jscs-preset-wikimedia": "~1.0.0",
     "jsonlint": "~1.6.2",
-    "lodash": "~3.10.0",
+    "lodash": "~4.17.5",
     "minimatch": "~3.0.0",
     "natural-compare": "~1.2.2",
     "pathval": "~0.1.1",
@@ -85,7 +85,8 @@
     "to-single-quotes": "^2.0.0",
     "vow": "~0.4.8",
     "vow-fs": "~0.3.4",
-    "xmlbuilder": "^3.1.0"
+    "xmlbuilder": "^4.2.1",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "chai": "^3.3.0",
@@ -136,7 +137,9 @@
     "coverage-html": "unit-coverage run -p common -r html -o coverage.html",
     "coveralls": "unit-coverage run -p common -r lcov -o out.lcov && cat out.lcov | coveralls",
     "changelog": "git log `git describe --tags --abbrev=0`..HEAD --pretty=format:' * %s (%an)' | grep -v 'Merge pull request'",
-    "release": "node publish/prepublish && npm test && npm publish"
+    "release": "node publish/prepublish && npm test && npm publish",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "bin",
@@ -144,5 +147,6 @@
     "patterns",
     "presets",
     "LICENSE"
-  ]
+  ],
+  "snyk": true
 }
